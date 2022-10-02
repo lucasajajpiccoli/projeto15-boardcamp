@@ -1,17 +1,5 @@
-import express from 'express';
-import cors from 'cors';
+import { app } from './app.js';
 
-import { connection } from './db/database.js';
-
-const server = express();
-server.use(cors());
-server.use(express.json());
-
-server.get('/status', async (req, res) => {
-    const categories = await connection.query('SELECT * FROM categories');
-    res.send(categories.rows);
-})
-
-server.listen(4000, () => {
-    console.log(`Listening on port 4000`);
+app.listen(4000, () => {
+    console.log("Listening on port 4000");
 });

@@ -1,0 +1,8 @@
+const TABLES = Object.freeze({
+    CATEGORIES: "categories",
+    CUSTOMERS: "customers",
+    GAMES: "games",
+    RENTALS: "rentals"
+});
+
+export { TABLES };
