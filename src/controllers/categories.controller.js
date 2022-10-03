@@ -21,8 +21,6 @@ async function createCategory(req,res) {
           `INSERT INTO ${TABLES.CATEGORIES} (name) VALUES ($1);`,  
         [name]);
 
-        console.log(insertion);
-
         res.sendStatus(STATUS_CODE.CREATED);
     } catch (error) {
         res.status(STATUS_CODE.SERVER_ERROR).send(error.message);

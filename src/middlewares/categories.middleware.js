@@ -17,13 +17,12 @@ async function categoriesMiddleware(req, res, next) {
         const category = (await connection.query(
             `SELECT * FROM ${TABLES.CATEGORIES} WHERE name = $1;`,
         [name])).rows;
-        console.log(category);
         if (category[0]) { return res.sendStatus(STATUS_CODE.CONFLICT) }
 
         res.locals.name = name;
         next();
     } catch (error) {
-        res.status(STATUS_CODE.SERVER_ERROR).send(error.message);
+        res.status(STATUS_CODE.SERVER_ERROR).send(error);
     }
 }
 
